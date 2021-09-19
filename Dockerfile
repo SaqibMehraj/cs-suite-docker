@@ -6,10 +6,10 @@ FROM openjdk:8-jdk-alpine
 RUN apk update && \
     apk --update --no-cache add python3 bash curl py3-pip && \
     pip3 install --upgrade pip && \
-    pip3 install awscli boto3 detect-secrets
+    #pip3 install awscli boto3 detect-secrets
     #apk add --no-cache grep sshpass curl bash && \
-    pip install -r requirements.txt && \
-    pip install awscli --ignore-installed six
+    pip3 install -r requirements.txt && \
+    pip3 install awscli --ignore-installed six
 COPY --from=builder /cs-suite /app/
 WORKDIR /app
 ENTRYPOINT ["python", "/app/cs.py"]
