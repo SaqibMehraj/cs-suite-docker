@@ -1,7 +1,7 @@
 FROM openjdk:8-jdk-alpine As builder
 RUN apk update && \
     apk add git && \
-    git clone https://github.com/SecurityFTW/cs-suite.git && \
+    git clone https://github.com/SecurityFTW/cs-suite.git
 FROM openjdk:8-jdk-alpine
 COPY --from=builder cs-suite /app/
 WORKDIR /app/
